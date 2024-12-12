@@ -174,8 +174,8 @@ const Hero = () => {
             <Image
               src={kobelco}
               alt='SD Pneumatics'
-              width={300}
-              height={300}
+              width={200}
+              height={200}
               className='max-w-full h-auto'
             />
           </motion.div>
