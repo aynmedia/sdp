@@ -88,7 +88,7 @@ const Hero = () => {
           className='text-white text-center w-full md:w-1/2 flex flex-col gap-8'
           variants={itemVariants}>
           <motion.h1
-            className='capitalize text-3xl md:text-5xl font-bold md:text-left'
+            className='capitalize text-3xl md:text-4xl font-bold md:text-left'
             variants={itemVariants}>
             Discover the Power of Air Compressors with SD Pneumatics
           </motion.h1>

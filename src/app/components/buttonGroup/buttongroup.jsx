@@ -5,55 +5,64 @@ import slide1 from '@/../public/images/slide1.svg';
 import slide2 from '@/../public/images/slide2.svg';
 import slide3 from '@/../public/images/slide3.svg';
 import slide4 from '@/../public/images/slide4.svg';
-import logo from '@/../public/images/logo.png';
+import anestlogo from '@/../public/images/anestlogo.svg';
 import Image from 'next/image';
-import Infocard from './infocard';
+import oxygen from '@/../public/images/oxygen.jpg';
+
 export function OrbitingCirclesDemo() {
   return (
-    <div className='max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-2 my-12'>
-      <div className='md:mt-12'>
-        <Infocard />
-      </div>
-      <div>
-        <div className='relative flex h-[600px] w-full flex-col items-center justify-center overflow-hidden'>
-          {/* <span className='pointer-events-none whitespace-pre-wrap bg-gradient-to-b from-[#0066CA] to-[#66CC01] bg-clip-text text-center text-4xl font-semibold leading-none text-transparent '>
+    <div className='bg-[#F4F4F4]'>
+      <div className='max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-2 my-12'>
+        <div className='md:mt-12 flex items-center justify-center'>
+          <Image
+            src={oxygen}
+            alt='Industry Presence'
+            width={800}
+            height={800}
+            className='rounded-md'
+          />
+        </div>
+        <div>
+          <div className='relative flex h-[600px] w-full flex-col items-center justify-center overflow-hidden'>
+            {/* <span className='pointer-events-none whitespace-pre-wrap bg-gradient-to-b from-[#0066CA] to-[#66CC01] bg-clip-text text-center text-4xl font-semibold leading-none text-transparent '>
             SDP
           </span> */}
-          <span>
-            <Image src={logo} alt='logo' width={100} height={100} />
-          </span>
-          {/* Inner Circles */}
-          <OrbitingCircles
-            className='size-[100px] border-none bg-transparent'
-            duration={20}
-            delay={20}
-            radius={80}>
-            <Icons.openai />
-          </OrbitingCircles>
-          <OrbitingCircles
-            className='size-[100px] border-none bg-transparent'
-            duration={20}
-            delay={10}
-            radius={80}>
-            <Icons.notion />
-          </OrbitingCircles>
+            <span>
+              <Image src={anestlogo} alt='logo' width={140} height={140} />
+            </span>
+            {/* Inner Circles */}
+            <OrbitingCircles
+              className='size-[100px] border-none bg-transparent'
+              duration={20}
+              delay={20}
+              radius={80}>
+              <Icons.openai />
+            </OrbitingCircles>
+            <OrbitingCircles
+              className='size-[100px] border-none bg-transparent'
+              duration={20}
+              delay={10}
+              radius={80}>
+              <Icons.notion />
+            </OrbitingCircles>
 
-          {/* Outer Circles (reverse) */}
-          <OrbitingCircles
-            className='size-[130px] border-none bg-transparent'
-            radius={190}
-            duration={20}
-            reverse>
-            <Icons.googleDrive />
-          </OrbitingCircles>
-          <OrbitingCircles
-            className='size-[130px] border-none bg-transparent'
-            radius={190}
-            duration={20}
-            delay={20}
-            reverse>
-            <Icons.gitHub />
-          </OrbitingCircles>
+            {/* Outer Circles (reverse) */}
+            <OrbitingCircles
+              className='size-[130px] border-none bg-transparent'
+              radius={190}
+              duration={20}
+              reverse>
+              <Icons.googleDrive />
+            </OrbitingCircles>
+            <OrbitingCircles
+              className='size-[130px] border-none bg-transparent'
+              radius={190}
+              duration={20}
+              delay={20}
+              reverse>
+              <Icons.gitHub />
+            </OrbitingCircles>
+          </div>
         </div>
       </div>
     </div>

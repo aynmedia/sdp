@@ -100,7 +100,7 @@ const ReviewCard = ({ image, category, username, body }) => {
         alt='category'
       />
       <div className='absolute bottom-0 left-0 right-0 bg-black bg-opacity-50 p-4'>
-        <figcaption className='text-sm font-medium text-white'>
+        <figcaption className='text-md font-bold text-white'>
           {category}
         </figcaption>
         {/* <p className='text-xs font-medium text-white/40'>{username}</p> */}
@@ -131,8 +131,8 @@ const Presence = () => {
             <ReviewCard key={data.number} {...data} />
           ))}
         </Marquee>
-        <div className='pointer-events-none absolute inset-y-0 left-0 w-1/3 bg-gradient-to-r from-white'></div>
-        <div className='pointer-events-none absolute inset-y-0 right-0 w-1/3 bg-gradient-to-l from-white'></div>
+        <div className='pointer-events-none absolute inset-y-0 left-0 w-1/6 bg-gradient-to-r from-white'></div>
+        <div className='pointer-events-none absolute inset-y-0 right-0 w-1/6 bg-gradient-to-l from-white'></div>
       </div>
     </div>
   );

@@ -342,8 +342,8 @@ const Footer = () => {
         whileInView={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.5, delay: 0.2 }}
         viewport={{ once: true }}
-        className='max-w-7xl mx-auto pb-3'>
-        <div className='text-base font-medium text-white/30 hover:text-white flex flex-row gap-4 justify-between'>
+        className='max-w-7xl mx-auto py-4'>
+        <div className='text-sm font-medium text-white/30 hover:text-white flex flex-row gap-4 justify-between'>
           <p>
             &copy; {new Date().getFullYear()} SD Pneumatics. All rights
             reserved.
