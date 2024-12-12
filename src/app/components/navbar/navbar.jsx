@@ -60,7 +60,7 @@ const NavBar = () => {
       {/* Desktop Navbar */}
       <div className='hidden md:flex justify-between items-center p-4 bg-transparent md:max-w-7xl container mx-auto '>
         <Link href='/' className='text-2xl font-bold text-white'>
-          <Image src={logo} alt='SD Pneumatics'></Image>
+          <Image src={logo} alt='SD Pneumatics' width={100} height={50}></Image>
         </Link>
 
         <div className='flex space-x-12'>
@@ -96,7 +96,11 @@ const NavBar = () => {
         {/* Mobile Header */}
         <div className='flex justify-between items-center p-4 bg-black/30 backdrop-blur-md'>
           <Link href='/' className='text-2xl font-bold text-white'>
-            <Image src={logo} alt='SD Pneumatics'></Image>
+            <Image
+              src={logo}
+              alt='SD Pneumatics'
+              width={100}
+              height={50}></Image>
           </Link>
 
           <motion.button

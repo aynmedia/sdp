@@ -3,14 +3,14 @@
 import React from 'react';
 import Image from 'next/image';
 import { motion } from 'framer-motion';
-import homemachine from '@/../public/images/homemachine.png';
-import hero from '@/../public/images/hero.png';
-import Button from '../button/button';
 
+import anestlogo from '@/../public/images/anestlogo.svg';
+import kobelco from '@/../public/images/kobelco.svg';
+import HeroVideoDialog from '@/components/ui/hero-video-dialog';
 const ScrollDownIndicator = () => {
   return (
     <motion.div
-      className='absolute bottom-8 left-1/2 transform -translate-x-1/2 flex flex-col items-center md:-ml-48'
+      className='absolute bottom-8 left-1/2 transform -translate-x-1/2 flex flex-col items-center '
       initial={{ opacity: 0 }}
       animate={{
         opacity: [0, 1, 0],
@@ -78,7 +78,7 @@ const Hero = () => {
   };
 
   return (
-    <div className='bg-primary relative overflow-hidden  pt-12'>
+    <div className='bg-primary relative overflow-hidden  pt-16'>
       <motion.div
         className='flex md:flex-row flex-col items-center justify-center min-h-screen gap-8 md:gap-24 max-w-7xl mx-auto px-4 py-16 relative'
         initial='hidden'
@@ -99,18 +99,28 @@ const Hero = () => {
             </button>
           </motion.div>
 
-          <motion.div
-            className='w-full flex justify-center md:justify-start'
-            variants={itemVariants}
-            whileHover={{ scale: 1.05 }}
-            whileTap={{ scale: 0.95 }}>
-            <Image
-              src={homemachine}
+          <motion.div className='w-full flex justify-center md:justify-start relative'>
+            <HeroVideoDialog
+              className='dark:hidden block'
+              animationStyle='from-center'
+              videoSrc='https://www.youtube.com/embed/zODMDux4Loc'
+              thumbnailSrc='https://sdp-pink.vercel.app/_next/image?url=%2F_next%2Fstatic%2Fmedia%2Fhero.f4f5eb7b.png&w=640&q=75'
+              thumbnailAlt='Hero Video'
+            />
+            <HeroVideoDialog
+              className='hidden dark:block'
+              animationStyle='from-center'
+              videoSrc='https://www.youtube.com/embed/zODMDux4Loc'
+              thumbnailSrc='https://sdp-pink.vercel.app/_next/image?url=%2F_next%2Fstatic%2Fmedia%2Fhero.f4f5eb7b.png&w=640&q=75'
+              thumbnailAlt='Hero Video'
+            />
+            {/* <Image
+              src={hero}
               alt='Air Compressor'
               width={400}
               height={400}
               className='max-w-full h-auto'
-            />
+            /> */}
           </motion.div>
         </motion.div>
 
@@ -146,17 +156,26 @@ const Hero = () => {
               </motion.div>
             ))}
           </motion.div>
-
+          <h1 className='text-white text-2xl font-bold'>
+            Authorized dealer of
+          </h1>
           <motion.div
-            className='w-full flex justify-center mt-8'
+            className='w-full flex md:flex-row flex-col items-center  gap-6 justify-center mt-8 bg-white p-4 rounded-lg'
             variants={itemVariants}
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.95 }}>
             <Image
-              src={hero}
+              src={anestlogo}
               alt='SD Pneumatics'
-              width={600}
-              height={600}
+              width={300}
+              height={300}
+              className='max-w-full h-auto'
+            />
+            <Image
+              src={kobelco}
+              alt='SD Pneumatics'
+              width={300}
+              height={300}
               className='max-w-full h-auto'
             />
           </motion.div>
