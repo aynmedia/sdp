@@ -5,7 +5,7 @@ import slide1 from '@/../public/images/slide1.svg';
 import slide2 from '@/../public/images/slide2.svg';
 import slide3 from '@/../public/images/slide3.svg';
 import slide4 from '@/../public/images/slide4.svg';
-
+import logo from '@/../public/images/logo.png';
 import Image from 'next/image';
 import Infocard from './infocard';
 export function OrbitingCirclesDemo() {
@@ -16,10 +16,12 @@ export function OrbitingCirclesDemo() {
       </div>
       <div>
         <div className='relative flex h-[600px] w-full flex-col items-center justify-center overflow-hidden'>
-          <span className='pointer-events-none whitespace-pre-wrap bg-gradient-to-b from-[#0066CA] to-[#66CC01] bg-clip-text text-center text-4xl font-semibold leading-none text-transparent '>
+          {/* <span className='pointer-events-none whitespace-pre-wrap bg-gradient-to-b from-[#0066CA] to-[#66CC01] bg-clip-text text-center text-4xl font-semibold leading-none text-transparent '>
             SDP
+          </span> */}
+          <span>
+            <Image src={logo} alt='logo' width={100} height={100} />
           </span>
-
           {/* Inner Circles */}
           <OrbitingCircles
             className='size-[100px] border-none bg-transparent'

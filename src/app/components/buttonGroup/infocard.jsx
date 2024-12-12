@@ -12,13 +12,13 @@ const Infocard = () => {
         transition={{ duration: 0.5 }}
         viewport={{ once: true }}
         className='sm:first:col-span-2 py-14 px-11 rounded-lg max-w-lg'
-        style={{ backgroundColor: '#FFE8D2' }}>
+        style={{ backgroundColor: '#ffddd2' }}>
         <motion.h3
           initial={{ opacity: 0, x: -50 }}
           whileInView={{ opacity: 1, x: 0 }}
           transition={{ duration: 0.5, delay: 0.2 }}
           viewport={{ once: true }}
-          className='mb-4 text-black text-xl font-extrabold leading-none'>
+          className='mb-4 text-black text-xl font-bold leading-none'>
           <span>Pneumatic Solutions Tailored for You</span>
         </motion.h3>
 
