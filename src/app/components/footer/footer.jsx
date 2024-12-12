@@ -154,7 +154,7 @@ const Footer = () => {
           whileInView={{ x: 0, opacity: 1 }}
           transition={{ duration: 0.5 }}
           viewport={{ once: true }}
-          className='flex flex-col justify-center py-12 px-12 md:px-4 bg-[#17181C] text-white col-span-1 rounded-xl'>
+          className='flex flex-col justify-center py-12 px-12 md:px-12 bg-[#17181C] text-white col-span-1 rounded-xl'>
           <h1 className='text-md font-medium text-[#FFD400] uppercase'>
             feedback
           </h1>

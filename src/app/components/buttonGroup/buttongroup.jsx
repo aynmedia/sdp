@@ -1,110 +1,98 @@
 /** @format */
 
-'use client';
+import OrbitingCircles from '@/components/ui/orbiting-circles';
+import slide1 from '@/../public/images/slide1.svg';
+import slide2 from '@/../public/images/slide2.svg';
+import slide3 from '@/../public/images/slide3.svg';
+import slide4 from '@/../public/images/slide4.svg';
 
-import React, { useRef } from 'react';
 import Image from 'next/image';
-import { motion, useInView } from 'framer-motion';
-import support from '@/../public/images/support.jpg';
-import ShimmerButton from '@/components/ui/shimmer-button';
-import contact from '@/../public/images/contact.jpg';
-import quote from '@/../public/images/quote.jpg';
-import spare from '@/../public/images/spare.jpg';
-
-const ButtonGroup = () => {
-  // Animation Variants
-  const containerVariants = {
-    hidden: { opacity: 0 },
-    visible: {
-      opacity: 1,
-      transition: {
-        staggerChildren: 0.2,
-      },
-    },
-  };
-
-  const itemVariants = {
-    hidden: { opacity: 0, y: 20, scale: 0.95 },
-    visible: {
-      opacity: 1,
-      y: 0,
-      scale: 1,
-      transition: {
-        duration: 0.9,
-        ease: 'easeInOut',
-      },
-    },
-    hover: {
-      scale: 1.1,
-      transition: { duration: 0.3, ease: 'easeOut' },
-    },
-  };
-
-  const buttonItems = [
-    { button: 'Request Quote', image: quote, imageFirst: false },
-    { button: 'Contact Us', image: contact, imageFirst: true },
-    { button: 'Request Spare Parts', image: spare, imageFirst: false },
-    { button: 'Service & Support', image: support, imageFirst: true },
-  ];
-
-  // Ref for triggering animations when in view
-  const ref = useRef(null);
-  const isInView = useInView(ref, { once: true, margin: '-50px 0px' });
-
+import Infocard from './infocard';
+export function OrbitingCirclesDemo() {
   return (
-    <motion.div
-      ref={ref}
-      className='grid grid-cols-1 md:grid-cols-4 max-w-7xl mx-auto gap-6 text-primary my-12 md:my-24 px-4 lg:px-8'
-      variants={containerVariants}
-      initial='hidden'
-      animate={isInView ? 'visible' : 'hidden'}>
-      {buttonItems.map((item, index) => (
-        <motion.div
-          key={index}
-          className='flex flex-col items-center gap-6 p-4 rounded-lg bg-white dark:bg-gray-800'
-          variants={itemVariants}
-          whileHover='hover'>
-          {item.imageFirst ? (
-            <>
-              <Image
-                src={item.image}
-                alt={item.button}
-                width={300}
-                height={300}
-                className='rounded-lg'
-              />
-              <ShimmerButton
-                borderRadius='5px'
-                background='linear-gradient(90deg, #FFD400, #FFA500)'
-                className='w-full'>
-                <span className='text-center text-md font-medium text-black dark:text-white'>
-                  {item.button}
-                </span>
-              </ShimmerButton>
-            </>
-          ) : (
-            <>
-              <ShimmerButton
-                borderRadius='5px'
-                background='linear-gradient(90deg, #FFD400, #FFA500)'
-                className='w-full'>
-                <span className='text-center text-md font-medium text-black dark:text-white'>
-                  {item.button}
-                </span>
-              </ShimmerButton>
-              <Image
-                src={item.image}
-                alt={item.button}
-                width={300}
-                height={300}
-                className='rounded-lg'
-              />
-            </>
-          )}
-        </motion.div>
-      ))}
-    </motion.div>
-  );
-};
+    <div className='max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-2 my-12'>
+      <div className='md:mt-12'>
+        <Infocard />
+      </div>
+      <div>
+        <div className='relative flex h-[600px] w-full flex-col items-center justify-center overflow-hidden'>
+          <span className='pointer-events-none whitespace-pre-wrap bg-gradient-to-b from-[#0066CA] to-[#66CC01] bg-clip-text text-center text-4xl font-semibold leading-none text-transparent '>
+            SDP
+          </span>
 
-export default ButtonGroup;
+          {/* Inner Circles */}
+          <OrbitingCircles
+            className='size-[100px] border-none bg-transparent'
+            duration={20}
+            delay={20}
+            radius={80}>
+            <Icons.openai />
+          </OrbitingCircles>
+          <OrbitingCircles
+            className='size-[100px] border-none bg-transparent'
+            duration={20}
+            delay={10}
+            radius={80}>
+            <Icons.notion />
+          </OrbitingCircles>
+
+          {/* Outer Circles (reverse) */}
+          <OrbitingCircles
+            className='size-[130px] border-none bg-transparent'
+            radius={190}
+            duration={20}
+            reverse>
+            <Icons.googleDrive />
+          </OrbitingCircles>
+          <OrbitingCircles
+            className='size-[130px] border-none bg-transparent'
+            radius={190}
+            duration={20}
+            delay={20}
+            reverse>
+            <Icons.gitHub />
+          </OrbitingCircles>
+        </div>
+      </div>
+    </div>
+  );
+}
+
+const Icons = {
+  gitHub: () => (
+    <Image
+      src={slide1}
+      alt='GitHub'
+      width={1000}
+      height={1000}
+      className='rounded-full'
+    />
+  ),
+  notion: () => (
+    <Image
+      src={slide2}
+      alt='GitHub'
+      width={1000}
+      height={1000}
+      className='rounded-full'
+    />
+  ),
+  openai: () => (
+    <Image
+      src={slide3}
+      alt='GitHub'
+      width={1000}
+      height={1000}
+      className='rounded-full'
+    />
+  ),
+  googleDrive: () => (
+    <Image
+      src={slide4}
+      alt='GitHub'
+      width={1000}
+      height={1000}
+      className='rounded-full'
+    />
+  ),
+};
