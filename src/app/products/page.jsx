@@ -10,7 +10,7 @@ const page = () => {
   return (
     <div>
       <div className='min-h-screen max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex justify-center flex-col'>
-        <div className='flex flex-col gap-5 w-1/2'>
+        <div className='flex flex-col gap-5 md:w-1/2'>
           <span className='text-xl font-black text-green-600'>Products</span>
           <h1 className='text-4xl font-bold'>All Products</h1>
           <p className='text-black/60'>

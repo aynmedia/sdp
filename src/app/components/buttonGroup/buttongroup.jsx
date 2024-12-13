@@ -94,7 +94,7 @@ export function OrbitingCirclesDemo() {
       whileInView='visible'
       viewport={{ once: true, amount: 0.1 }}
       variants={containerVariants}>
-      <div className='max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-2 my-12'>
+      <div className='max-w-7xl md:mx-auto grid grid-cols-1 md:grid-cols-2 my-12 mx-6 py-4'>
         <motion.div
           className='md:mt-12 flex flex-1 flex-col justify-center gap-6'
           variants={itemVariants}>
@@ -136,7 +136,7 @@ export function OrbitingCirclesDemo() {
         </motion.div>
         <motion.div
           variants={itemVariants}
-          className='relative flex h-[630px] w-full flex-col items-center justify-center overflow-hidden'>
+          className='relative flex  h-[630px] w-full flex-col items-center justify-center overflow-hidden'>
           <motion.span
             initial={{ scale: 0.5, opacity: 0 }}
             whileInView={{ scale: 1, opacity: 1 }}

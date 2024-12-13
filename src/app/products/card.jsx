@@ -5,7 +5,7 @@ import React from 'react';
 
 const Card = ({ products }) => {
   return (
-    <div className='card'>
+    <div className='mx-auto '>
       <Image
         src={products.featured_media}
         alt='Card Image'

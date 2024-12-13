@@ -14,6 +14,7 @@ export default function Products() {
   const [currentPage, setCurrentPage] = useState(1);
   const [totalPages, setTotalPages] = useState(0);
   const [selectedCategory, setSelectedCategory] = useState(null);
+  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const productsPerPage = 9;
 
   // Fetch Categories
@@ -113,68 +114,128 @@ export default function Products() {
   const handleCategorySelect = (categoryId) => {
     setSelectedCategory(categoryId);
     setCurrentPage(1); // Reset to first page when changing category
+    setIsMobileMenuOpen(false); // Close mobile menu
   };
 
   return (
-    <>
-      {/* Navbar */}
-      <div className='h-24 w-full bg-primary my-12'>
-        <div className='flex flex-wrap justify-start items-center h-full max-w-7xl mx-auto text-white text-base sm:text-lg md:text-xl font-semibold gap-4 sm:gap-6 lg:gap-8'>
-          {categories.map((category) => (
-            <button
-              key={category.id}
-              onClick={() => handleCategorySelect(category.id)}
-              className={`h-full flex items-center py-2 px-4 sm:px-6 lg:px-8 ${
-                selectedCategory === category.id
-                  ? 'border-t-4 border-white'
-                  : ''
-              } hover:border-t-4 hover:border-white transition-all duration-300 ease-in-out`}>
-              {category.name}
-            </button>
-          ))}
+    <div className='relative'>
+      {/* Mobile Category Toggle (Moved down) */}
+      <div className='container mx-auto px-4 pt-4 md:pt-0'>
+        <div className='md:hidden'>
+          <button
+            onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+            className='w-full p-4 text-center bg-primary text-white font-semibold'>
+            {isMobileMenuOpen ? 'Close Categories' : 'Select Categories'}
+          </button>
         </div>
-      </div>
 
-      {/* Main Content */}
-      {loading ? (
-        <div className='flex justify-center items-center h-screen'>
-          <div className='animate-spin rounded-full h-32 w-32 border-t-2 border-b-2 border-gray-700'></div>
-        </div>
-      ) : error ? (
-        <div className='flex justify-center items-center h-screen'>
-          <p>Error fetching posts</p>
-        </div>
-      ) : (
-        <>
-          {/* Product Grid */}
-          <div className='grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 p-6 sm:p-12 max-w-7xl mx-auto'>
-            {posts.map((post, index) => (
-              <ProductCard key={index} products={post} />
+        {/* Navbar with Categories */}
+        <div
+          className={`
+          md:static 
+          w-full bg-primary 
+          transition-transform duration-300 ease-in-out
+          ${isMobileMenuOpen ? 'translate-y-0' : '-translate-y-full'}
+          md:translate-y-0 z-40
+        `}>
+          <div
+            className='
+            flex flex-col md:flex-row 
+            overflow-y-auto max-h-[calc(100vh-4rem)] 
+            md:max-h-none
+            justify-start items-stretch md:items-center 
+            h-full max-w-7xl mx-auto 
+            text-white text-base sm:text-lg md:text-xl 
+            font-semibold gap-0 md:gap-4
+          '>
+            {categories.map((category) => (
+              <button
+                key={category.id}
+                onClick={() => handleCategorySelect(category.id)}
+                className={`
+                  w-full md:w-auto
+                  flex items-center justify-center 
+                  py-4 md:py-2 px-4 sm:px-6 lg:px-8 
+                  ${
+                    selectedCategory === category.id
+                      ? 'bg-white/20 md:border-t-4 border-white'
+                      : 'hover:bg-white/10'
+                  }
+                  transition-all duration-300 ease-in-out
+                `}>
+                {category.name}
+              </button>
             ))}
           </div>
+        </div>
 
-          {/* Pagination Controls */}
-          <div className='flex justify-center items-center space-x-4 mt-8 mb-8'>
-            <button
-              onClick={handlePrevPage}
-              disabled={currentPage === 1}
-              className='px-4 py-2 bg-gray-200 rounded disabled:opacity-50'>
-              Previous
-            </button>
+        {/* Main Content */}
+        <div className='pt-4'>
+          {loading ? (
+            <div className='flex justify-center items-center'>
+              <div className='animate-spin rounded-full h-16 sm:h-24 md:h-32 w-16 sm:w-24 md:w-32 border-t-2 border-b-2 border-gray-700'></div>
+            </div>
+          ) : error ? (
+            <div className='flex justify-center items-center h-screen'>
+              <p className='text-center text-red-500'>Error fetching posts</p>
+            </div>
+          ) : (
+            <>
+              {/* Product Grid */}
+              <div
+                className='
+                grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 
+                lg:grid-cols-4 gap-4 sm:gap-6 
+                px-0 sm:p-0 
+                max-w-7xl mx-auto
+              '>
+                {posts.map((post, index) => (
+                  <ProductCard key={index} products={post} />
+                ))}
+              </div>
 
-            <span className='text-gray-700'>
-              Page {currentPage} of {totalPages}
-            </span>
+              {/* Pagination Controls */}
+              <div
+                className='
+                flex flex-col sm:flex-row 
+                justify-center items-center 
+                space-y-4 sm:space-y-0 sm:space-x-4 
+                mt-8 mb-8 px-4
+              '>
+                <button
+                  onClick={handlePrevPage}
+                  disabled={currentPage === 1}
+                  className='
+                    w-full sm:w-auto 
+                    px-4 py-2 
+                    bg-gray-200 rounded 
+                    disabled:opacity-50 
+                    transition-colors
+                  '>
+                  Previous
+                </button>
 
-            <button
-              onClick={handleNextPage}
-              disabled={currentPage === totalPages}
-              className='px-4 py-2 bg-gray-200 rounded disabled:opacity-50'>
-              Next
-            </button>
-          </div>
-        </>
-      )}
-    </>
+                <span className='text-gray-700 my-2 sm:my-0'>
+                  Page {currentPage} of {totalPages}
+                </span>
+
+                <button
+                  onClick={handleNextPage}
+                  disabled={currentPage === totalPages}
+                  className='
+                    w-full sm:w-auto 
+                    px-4 py-2 
+                    bg-gray-200 rounded 
+                    disabled:opacity-50 
+                    transition-colors
+                  '>
+                  Next
+                </button>
+              </div>
+            </>
+          )}
+        </div>
+      </div>
+    </div>
   );
 }
