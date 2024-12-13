@@ -11,7 +11,7 @@ import anestlogo from '@/../public/images/anestlogo.svg';
 import kobelco from '@/../public/images/kobelco.svg';
 import Link from 'next/link';
 import { CircleArrowRight, ChevronDown } from 'lucide-react';
-
+import oxy from '@/../public/images/oxygen.jpg';
 const slides = [
   {
     image: anesta,
@@ -30,20 +30,11 @@ const slides = [
     logo: kobelco,
   },
   {
-    image: 'https://via.placeholder.com/1920x1080/3357FF/FFFFFF?text=Slide+3',
+    image: oxy,
     bg: sliderbg1,
     title: 'Oxygen Generators',
     description:
-      'Gear up for an unforgettable journey through exotic destinations.',
-    logo: kobelco,
-  },
-  {
-    image: 'https://via.placeholder.com/1920x1080/FF33A5/FFFFFF?text=Slide+4',
-    bg: sliderbg1,
-    title: 'Others',
-    description:
-      'Step back in history and explore ancient cultures and traditions.',
-    logo: kobelco,
+      'Efficient and reliable oxygen generators designed to meet the demands of various industries. Delivering high-purity oxygen on-site, these systems ensure cost-effectiveness and continuous supply, eliminating the need for cylinder storage. Perfect for medical, industrial, and environmental applications.',
   },
 ];
 
@@ -103,13 +94,15 @@ const HomeSlider = () => {
           <div className='grid grid-cols-1 md:grid-cols-2 gap-6 w-full max-w-6xl'>
             {/* Text Content */}
             <div className='flex flex-col justify-center text-primary text-left px-4'>
-              <Image
-                src={slides[currentSlide].logo}
-                alt='Logo'
-                width={150}
-                height={100}
-                className='my-12'
-              />
+              {slides[currentSlide].logo && (
+                <Image
+                  src={slides[currentSlide].logo}
+                  alt='Logo'
+                  width={150}
+                  height={100}
+                  className='my-12'
+                />
+              )}
               <motion.h1
                 initial={{ opacity: 0, y: 50 }}
                 animate={{ opacity: 1, y: 0 }}
@@ -121,7 +114,7 @@ const HomeSlider = () => {
                 initial={{ opacity: 0, y: 50 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: 0.5, duration: 0.7 }}
-                className='text-sm md:text-lg max-w-lg'>
+                className='text-sm md:text-lg max-w-lg text-black/60'>
                 {slides[currentSlide].description}
               </motion.p>
               <Link

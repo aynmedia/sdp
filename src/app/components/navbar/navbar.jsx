@@ -6,7 +6,7 @@ import Link from 'next/link';
 import { Menu, Send, X } from 'lucide-react';
 import Image from 'next/image';
 import logo from '@/../public/images/logo.png';
-import Button from '../button/button';
+import { RainbowButton } from '@/components/ui/rainbow-button';
 
 const NavBar = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -16,6 +16,7 @@ const NavBar = () => {
     { href: '/', label: 'Home' },
     { href: '/company', label: 'Company' },
     { href: '/products', label: 'Products' },
+    { href: '/blogs', label: 'Blogs' },
     { href: '/contact', label: 'Contact' },
   ];
 
@@ -78,7 +79,6 @@ const NavBar = () => {
         <Link href='/' className='text-2xl font-bold'>
           <Image src={logo} alt='SD Pneumatics' width={100} height={50}></Image>
         </Link>
-
         <div className='flex space-x-12'>
           {navItems.map((item, index) => (
             <motion.div
@@ -95,15 +95,9 @@ const NavBar = () => {
             </motion.div>
           ))}
         </div>
-        <Button
-          text='Lets Talk'
-          bgColor='bg-transparent'
-          hoverBgColor='#FFD400'
-          icon={Send}
-          link='/contact'
-          borderColor='border-primary'
-          hoverBorderColor='border-[#FFD400]'
-        />
+        <RainbowButton>
+          Lets Talk <Send className='ml-4' size={18} />
+        </RainbowButton>
       </div>
 
       {/* Mobile Navbar */}

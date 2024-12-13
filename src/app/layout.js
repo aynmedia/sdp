@@ -4,6 +4,7 @@ import localFont from 'next/font/local';
 import './globals.css';
 import NavBar from './components/navbar/navbar';
 import Footer from './components/footer/footer';
+import LenisScroll from './components/smoothscroll/smoothscroll';
 
 const geistSans = localFont({
   src: './fonts/GeistVF.woff',
@@ -29,7 +30,7 @@ export default function RootLayout({ children }) {
         <div>
           <NavBar />
         </div>
-        {children}
+        <LenisScroll>{children}</LenisScroll>
         <Footer />
       </body>
     </html>

@@ -114,7 +114,7 @@ const Presence = () => {
       <div className='max-w-7xl mx-auto text-center'>
         {' '}
         <h1 className='text-3xl font-semibold mt-2'>Industry Applications</h1>
-        <h2 className='text-base max-w-2xl mx-auto my-2'>
+        <h2 className='text-md text-black/60 max-w-3xl mx-auto my-2'>
           With a strong foundation in global expertise, we provide trusted
           solutions that cater to diverse industries, consistently delivering
           exceptional performance and groundbreaking innovation worldwide.
@@ -131,8 +131,8 @@ const Presence = () => {
             <ReviewCard key={data.number} {...data} />
           ))}
         </Marquee>
-        <div className='pointer-events-none absolute inset-y-0 left-0 w-1/6 bg-gradient-to-r from-white'></div>
-        <div className='pointer-events-none absolute inset-y-0 right-0 w-1/6 bg-gradient-to-l from-white'></div>
+        {/* <div className='pointer-events-none absolute inset-y-0 left-0 w-1/6 bg-gradient-to-r from-white'></div>
+        <div className='pointer-events-none absolute inset-y-0 right-0 w-1/6 bg-gradient-to-l from-white'></div> */}
       </div>
     </div>
   );

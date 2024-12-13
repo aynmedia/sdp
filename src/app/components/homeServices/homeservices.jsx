@@ -91,7 +91,7 @@ export default function Home() {
       <div className='max-w-7xl mx-auto'>
         {' '}
         <h1 className='text-3xl font-semibold my-8'>Services We Offer</h1>
-        <h2 className='text-xl  my-8'>
+        <h2 className='text-md text-black/60  my-8'>
           Global expertise, trusted solutions across diverse industries,
           delivering consistent performance and innovation worldwide.
         </h2>
