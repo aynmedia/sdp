@@ -1,6 +1,6 @@
 /** @format */
 'use client';
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import Link from 'next/link';
 import { Menu, Send, X } from 'lucide-react';
@@ -10,13 +10,26 @@ import Button from '../button/button';
 
 const NavBar = () => {
   const [isOpen, setIsOpen] = useState(false);
+  const [scrolled, setScrolled] = useState(false);
 
   const navItems = [
     { href: '/', label: 'Home' },
-    { href: '/about', label: 'About' },
-    { href: '/services', label: 'Services' },
+    { href: '/company', label: 'Company' },
+    { href: '/products', label: 'Products' },
     { href: '/contact', label: 'Contact' },
   ];
+
+  const handleScroll = () => {
+    const scrollThreshold = 80; // Adjust this value to trigger the color change sooner or later
+    setScrolled(window.scrollY > scrollThreshold);
+  };
+
+  useEffect(() => {
+    window.addEventListener('scroll', handleScroll);
+    return () => {
+      window.removeEventListener('scroll', handleScroll);
+    };
+  }, []);
 
   const menuVariants = {
     hidden: { opacity: 0, y: -50 },
@@ -56,10 +69,13 @@ const NavBar = () => {
   };
 
   return (
-    <nav className='fixed top-0 left-0 w-full z-50 border-b border-white/30 bg-primary'>
+    <nav
+      className={`fixed top-0 left-0 w-full z-50 ${
+        scrolled ? 'bg-primary text-white' : 'bg-transparent text-black'
+      } transition-colors duration-50 ease-in-out`}>
       {/* Desktop Navbar */}
-      <div className='hidden md:flex justify-between items-center p-4 bg-transparent md:max-w-7xl container mx-auto '>
-        <Link href='/' className='text-2xl font-bold text-white'>
+      <div className='hidden md:flex justify-between items-center p-4 md:max-w-7xl container mx-auto'>
+        <Link href='/' className='text-2xl font-bold'>
           <Image src={logo} alt='SD Pneumatics' width={100} height={50}></Image>
         </Link>
 
@@ -73,8 +89,7 @@ const NavBar = () => {
               transition={{ delay: index * 0.1 }}>
               <Link
                 href={item.href}
-                className='text-white hover:text-gray-300 transition-colors duration-300
-                font-bold'>
+                className='hover:text-gray-300 transition-colors duration-300 font-bold'>
                 {item.label}
               </Link>
             </motion.div>
@@ -86,7 +101,7 @@ const NavBar = () => {
           hoverBgColor='#FFD400'
           icon={Send}
           link='/contact'
-          borderColor='border-white'
+          borderColor='border-primary'
           hoverBorderColor='border-[#FFD400]'
         />
       </div>
@@ -94,8 +109,8 @@ const NavBar = () => {
       {/* Mobile Navbar */}
       <div className='md:hidden'>
         {/* Mobile Header */}
-        <div className='flex justify-between items-center p-4 bg-black/30 backdrop-blur-md'>
-          <Link href='/' className='text-2xl font-bold text-white'>
+        <div className='flex justify-between items-center p-4'>
+          <Link href='/' className='text-2xl font-bold'>
             <Image
               src={logo}
               alt='SD Pneumatics'
@@ -106,7 +121,7 @@ const NavBar = () => {
           <motion.button
             onClick={() => setIsOpen(!isOpen)}
             whileTap={{ scale: 0.9 }}
-            className='text-white z-50'>
+            className='z-50'>
             {isOpen ? <X size={24} /> : <Menu size={24} />}
           </motion.button>
         </div>
