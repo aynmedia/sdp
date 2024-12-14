@@ -8,6 +8,7 @@ import { OrbitingCirclesDemo } from './components/buttonGroup/buttongroup';
 import Presence from './components/presence/presence';
 import Calltoaction from './components/calltoaction/calltoaction';
 import Homeslider from './components/homeslider';
+import LatestPostsWidget from './components/blogs/blogs';
 
 export default function Home() {
   return (
@@ -19,6 +20,7 @@ export default function Home() {
       <HomeServices />
       <OrbitingCirclesDemo />
       <Presence />
+      <LatestPostsWidget />
     </>
   );
 }

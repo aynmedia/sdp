@@ -89,7 +89,7 @@ export default function ProductCard({ products }) {
               text-sm
             '>
           <Download size={22} className='mr-2' />
-          Get a Quoate
+          Get a Quote
         </button>
       </div>
     </div>
