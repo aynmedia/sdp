@@ -15,7 +15,7 @@ export default function Products() {
   const [totalPages, setTotalPages] = useState(0);
   const [selectedCategory, setSelectedCategory] = useState(null);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
-  const productsPerPage = 9;
+  const productsPerPage = 1;
 
   // Fetch Categories
   useEffect(() => {
@@ -120,7 +120,7 @@ export default function Products() {
   return (
     <div className='relative'>
       {/* Mobile Category Toggle (Moved down) */}
-      <div className='container mx-auto px-4 pt-4 md:pt-0'>
+      <div className='container mx-auto  pt-4 md:pt-0'>
         <div className='md:hidden'>
           <button
             onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
@@ -133,7 +133,7 @@ export default function Products() {
         <div
           className={`
           md:static 
-          w-full bg-primary 
+          w-full bg-primary h-20
           transition-transform duration-300 ease-in-out
           ${isMobileMenuOpen ? 'translate-y-0' : '-translate-y-full'}
           md:translate-y-0 z-40
@@ -155,10 +155,10 @@ export default function Products() {
                 className={`
                   w-full md:w-auto
                   flex items-center justify-center 
-                  py-4 md:py-2 px-4 sm:px-6 lg:px-8 
+                  py-6  px-4 sm:px-6 lg:px-8 
                   ${
                     selectedCategory === category.id
-                      ? 'bg-white/20 md:border-t-4 border-white'
+                      ? 'bg-primary md:border-t-4 border-white'
                       : 'hover:bg-white/10'
                   }
                   transition-all duration-300 ease-in-out
@@ -172,7 +172,7 @@ export default function Products() {
         {/* Main Content */}
         <div className='pt-4'>
           {loading ? (
-            <div className='flex justify-center items-center'>
+            <div className='flex justify-center items-center h-screen'>
               <div className='animate-spin rounded-full h-16 sm:h-24 md:h-32 w-16 sm:w-24 md:w-32 border-t-2 border-b-2 border-gray-700'></div>
             </div>
           ) : error ? (
@@ -185,9 +185,9 @@ export default function Products() {
               <div
                 className='
                 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 
-                lg:grid-cols-4 gap-4 sm:gap-6 
+                lg:grid-cols-3 gap-4 sm:gap-6 
                 px-0 sm:p-0 
-                max-w-7xl mx-auto
+                max-w-7xl mx-auto my-12
               '>
                 {posts.map((post, index) => (
                   <ProductCard key={index} products={post} />
@@ -202,35 +202,37 @@ export default function Products() {
                 space-y-4 sm:space-y-0 sm:space-x-4 
                 mt-8 mb-8 px-4
               '>
-                <button
-                  onClick={handlePrevPage}
-                  disabled={currentPage === 1}
-                  className='
-                    w-full sm:w-auto 
-                    px-4 py-2 
-                    bg-gray-200 rounded 
-                    disabled:opacity-50 
-                    transition-colors
-                  '>
-                  Previous
-                </button>
+                {currentPage !== 1 && (
+                  <button
+                    onClick={handlePrevPage}
+                    className='
+                      w-full sm:w-auto 
+                      px-4 py-2 
+                      bg-gray-200 rounded 
+                      transition-colors
+                    '>
+                    Previous
+                  </button>
+                )}
 
-                <span className='text-gray-700 my-2 sm:my-0'>
-                  Page {currentPage} of {totalPages}
-                </span>
+                {currentPage !== 0 && (
+                  <span className='text-gray-700 my-2 sm:my-0'>
+                    Page {currentPage} of {totalPages}
+                  </span>
+                )}
 
-                <button
-                  onClick={handleNextPage}
-                  disabled={currentPage === totalPages}
-                  className='
-                    w-full sm:w-auto 
-                    px-4 py-2 
-                    bg-gray-200 rounded 
-                    disabled:opacity-50 
-                    transition-colors
-                  '>
-                  Next
-                </button>
+                {currentPage !== totalPages && (
+                  <button
+                    onClick={handleNextPage}
+                    className='
+                      w-full sm:w-auto 
+                      px-4 py-2 
+                      bg-gray-200 rounded 
+                      transition-colors
+                    '>
+                    Next
+                  </button>
+                )}
               </div>
             </>
           )}
