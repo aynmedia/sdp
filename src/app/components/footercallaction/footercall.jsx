@@ -5,11 +5,11 @@ import React from 'react';
 import call from '@/../public/images/call.jpg';
 import { CircleArrowRight } from 'lucide-react';
 import Link from 'next/link';
-import air from '@/../public/images/air.webp';
+import air from '@/../public/images/air.png';
 
 const FooterCall = () => {
   return (
-    <div className='relative h-[700px] w-full flex items-center justify-center overflow-hidden'>
+    <div className='relative h-[500px] w-full flex items-center justify-center overflow-hidden'>
       {/* Background Image */}
       <Image
         src={call}
@@ -23,13 +23,15 @@ const FooterCall = () => {
 
       {/* Content Container */}
       <div className='relative z-10 max-w-7xl mx-auto px-4 py-16 w-full'>
-        <Image
-          src={air}
-          alt='Air trust illustration'
-          width={400}
-          height={400}
-          className='w-full max-w-md object-contain mb-6 flex items-center'
-        />
+        <div className='flex w-full justify-center'>
+          <Image
+            src={air}
+            alt='Air trust illustration'
+            width={400}
+            height={400}
+            className='w-full max-w-md object-contain mb-6 flex items-center'
+          />
+        </div>
         <div className='grid md:grid-cols-2 gap-8'>
           {/* First Column */}
           <div className='bg-white/10 backdrop-blur-sm rounded-xl p-6'>
