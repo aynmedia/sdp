@@ -80,8 +80,8 @@ export default function ContactPage() {
               <h3 className='text-lg font-semibold text-gray-900 mb-2'>
                 Call Us
               </h3>
-              <p className='text-gray-600'>+1 (555) 123-4567</p>
-              <p className='text-sm text-gray-500 mt-2'>Mon-Fri, 9am-6pm EST</p>
+              <p className='text-gray-600'>+91 99865 23331</p>
+              <p className='text-sm text-gray-500 mt-2'>Mon-Fri, 9am-6pm IST</p>
             </motion.div>
 
             <motion.div
@@ -94,8 +94,11 @@ export default function ContactPage() {
               <h3 className='text-lg font-semibold text-gray-900 mb-2'>
                 Visit Us
               </h3>
-              <p className='text-gray-600'>123 Business Street</p>
-              <p className='text-gray-600'>New York, NY 10001</p>
+              <p className='text-gray-600'>
+                56, 4th Main Rd, Manjunath Nagar, Basaveshwar Nagar, Bengaluru,
+                Karnataka 560010
+              </p>
+              {/* <p className='text-gray-600'>New York, NY 10001</p> */}
             </motion.div>
           </div>
         </motion.div>
@@ -124,7 +127,7 @@ export default function ContactPage() {
             </div>
             <div className='h-96 w-full'>
               <iframe
-                src='https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d387193.30596073366!2d-74.25986867659859!3d40.69714941954754!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x89c24fa5d33f083b%3A0xc80b8f06e177fe62!2sNew+York%2C+NY!5e0!3m2!1sen!2sus!4v1565727759658!5m2!1sen!2sus'
+                src='https://www.google.com/maps/embed?pb=!1m28!1m12!1m3!1d62202.39688540557!2d77.50668301364499!3d12.994236054569898!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!4m13!3e6!4m5!1s0x3bae3d93e7b9c72b%3A0x7245c24d79dcdff4!2sS.D.%20PNEUMATICS%2C%204th%20Main%20Road%2C%20Manjunath%20Nagar%2C%20Basaveshwar%20Nagar%2C%20Bengaluru%2C%20Karnataka!3m2!1d12.9942237!2d77.5478803!4m5!1s0x3bae3d93e7b9c72b%3A0x7245c24d79dcdff4!2s456%2C%204th%20Main%20Rd%2C%20Manjunath%20Nagar%2C%20Basaveshwar%20Nagar%2C%20Bengaluru%2C%20Karnataka%20560010!3m2!1d12.9942237!2d77.5478803!5e0!3m2!1sen!2sin!4v1735397073310!5m2!1sen!2sin'
                 width='100%'
                 height='100%'
                 style={{ border: 0 }}

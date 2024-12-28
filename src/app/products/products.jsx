@@ -15,7 +15,7 @@ export default function Products() {
   const [totalPages, setTotalPages] = useState(0);
   const [selectedCategory, setSelectedCategory] = useState(null);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
-  const productsPerPage = 1;
+  const productsPerPage = 9;
 
   // Fetch Categories
   useEffect(() => {

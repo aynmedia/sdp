@@ -99,7 +99,7 @@ export function BlogClient({ posts, totalPosts, currentPage, totalPages }) {
         />
         <div className='absolute top-0 left-0 w-full h-full z-10 bg-black/20'></div>
         <div className='mb-12 text-center absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2'>
-          <h1 className='text-5xl font-bold mb-4 text-black'>News & Updates</h1>
+          <h1 className='text-5xl font-bold mb-4 text-black'>News</h1>
           <p className='text-white text-lg'>
             {totalPosts} inspiring stories to explore
           </p>
@@ -130,7 +130,7 @@ export function BlogClient({ posts, totalPosts, currentPage, totalPages }) {
                   <div className='p-6'>
                     <CardTitle className='text-xl font-bold'>
                       <Link
-                        href={`/blogs/${post.slug}`}
+                        href={`/blog/${post.slug}`}
                         className='text-gray-800 hover:text-blue-900 transition-colors duration-200'>
                         {post.title.rendered}
                       </Link>
