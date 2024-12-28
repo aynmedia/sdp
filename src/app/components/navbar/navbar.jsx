@@ -89,7 +89,7 @@ const NavBar = () => {
               transition={{ delay: index * 0.1 }}>
               <Link
                 href={item.href}
-                className='hover:text-gray-300 transition-colors duration-300 font-bold'>
+                className='hover:text-amber-400 transition-colors duration-300 font-bold'>
                 {item.label}
               </Link>
             </motion.div>

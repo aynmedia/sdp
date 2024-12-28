@@ -145,8 +145,8 @@ export default function Products() {
             md:max-h-none
             justify-start items-stretch md:items-center 
             h-full max-w-7xl mx-auto 
-            text-white text-base sm:text-lg md:text-xl 
-            font-semibold gap-0 md:gap-4
+            text-white text-base sm:text-lg md:text-lg 
+            font-regular gap-0 md:gap-4
           '>
             {categories.map((category) => (
               <button
