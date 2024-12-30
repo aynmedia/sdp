@@ -24,7 +24,7 @@ export default async function BlogIndex() {
   const posts = await getAllPosts();
 
   return (
-    <div className='relative my-12'>
+    <div className='relative '>
       {/* Hero Section */}
       <div className='relative h-[50vh] w-full'>
         <Image
@@ -42,7 +42,7 @@ export default async function BlogIndex() {
       </div>
 
       {/* Content Section */}
-      <div className='max-w-7xl mx-auto px-4 pt-12 pb-8'>
+      <div className='max-w-7xl mx-auto px-4 pt-12 pb-8 my-12'>
         <div className='grid gap-8 grid-cols-1 sm:grid-cols-2 lg:grid-cols-3'>
           {posts.map((post) => {
             const featuredImage =
